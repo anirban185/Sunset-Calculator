@@ -1,12 +1,16 @@
 function calculate() {
     var lat = parseFloat(document.getElementById("lat").value);
     var lon = parseFloat(document.getElementById("lon").value);
-    var day = parseFloat(document.getElementById("day").value);
 
-    if (isNaN(lat) || isNaN(lon) || isNaN(day)) {
+    if (isNaN(lat) || isNaN(lon)) {
         document.getElementById("result").innerText = "Fill in all the fields first";
         return;
     }
+
+    var now = new Date();
+    var stateofyear = Date.UTC(now.getUTCFullYear(), 0, 0);
+    var currentdate = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+    var day = Math.floor((currentdate - stateofyear) / (1000 * 60 * 60 * 24));
 
     var g = (2 * Math.PI / 365) * (day - 1);
     var d = 0.006918 - 0.399912 * Math.cos(g) + 0.070257 * Math.sin(g) - 0.006758 * Math.cos(2 * g) + 0.000907 * Math.sin(2 * g);
