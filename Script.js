@@ -26,7 +26,36 @@ function calculate() {
     var w = Math.acos(cosw) * 180 / Math.PI;
     var noon = 720 - 4 * lon - e;
     var sunsetUtc = noon + 4 * w;
-    var sunsetLocal = sunsetUtc + ((lon / 15) * 60);
+
+    var tz = tzlookup(lat, lon);
+    var formatter = new Intl.DateTimeFormat('en-US', { timeZone: tz, timeZoneName: 'shortOffset' });
+    var formatParts = formatter.formatToParts(now);
+    var offsetStr = "";
+    for (var i = 0; i < formatParts.length; i++) {
+        if (formatParts[i].type == "timeZoneName") {
+            offsetStr = formatParts[i].value;
+        }
+    }
+    var tzMinutes = 0;
+    if (offsetStr != "GMT" && offsetStr != "UTC") {
+        var sign = 1;
+        var timeStr = "";
+        if (offsetStr.includes("-")) {
+            sign = -1;
+            timeStr = offsetStr.split("-")[1];
+        } else {
+            timeStr = offsetStr.split("+")[1];
+        }
+        var timeArray = timeStr.split(":");
+        var hours = parseInt(timeArray[0]);
+        var mins = 0;
+        if (timeArray.length > 1) {
+            mins = parseInt(timeArray[1]);
+        }
+        tzMinutes = sign * (hours * 60 + mins);
+    }
+    var sunsetLocal = sunsetUtc + tzMinutes;
+
     var h = Math.floor((sunsetLocal / 60) % 24);
     var m = Math.round(sunsetLocal % 60);
 
@@ -44,5 +73,5 @@ function calculate() {
         m = "0" + m;
     }
 
-    document.getElementById("result").innerText = "Sunset time: " + h + ":" + m;
+    document.getElementById("result").innerText = "Sunset time: " + h + ":" + m + " (" + tz + ")";
 }
