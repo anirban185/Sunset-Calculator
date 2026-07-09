@@ -1,3 +1,19 @@
+function getGPS() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function (position) {
+                document.getElementById("lat").value = position.coords.latitude.toFixed(4);
+                document.getElementById("lon").value = position.coords.longitude.toFixed(4);
+            },
+            function (error) {
+                alert("Failed to get Location");
+            }
+        );
+    } else {
+        alert("Your browser dosn't support GPS.");
+    }
+}
+
 function calculate() {
     var lat = parseFloat(document.getElementById("lat").value);
     var lon = parseFloat(document.getElementById("lon").value);
