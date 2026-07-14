@@ -62,3 +62,32 @@ p {
 .countdown {
     background-color: #bbbbbb;
 }
+
+@media (max-width: 480px) {
+    body {
+        margin: 20px auto;
+        padding: 0 12px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    label {
+        font-size: 16px;
+    }
+
+    input {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 14px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+}
