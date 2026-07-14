@@ -2,6 +2,13 @@ body {
     max-width: 400px;
     margin: 60px auto;
     padding: 0 16px;
+    background-color: whitesmoke;
+}
+
+h2 {
+    text-align: center;
+    font-size: 26px;
+    color: black;
 }
 
 .input {
@@ -12,20 +19,46 @@ label {
     display: block;
     margin-top: 16px;
     margin-bottom: 6px;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
 }
 
 input {
-    padding: 6px;
+    padding: 10px;
     margin-top: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 3px solid black;
 }
 
 button {
-    padding: 8px 18px;
+    padding: 12px 18px;
     margin-top: 18px;
+    margin-right: 8px;
+    margin-bottom: 8px;
     cursor: pointer;
+    background-color: lime;
+    color: black;
+    border: 3px solid black;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: lightgreen;
 }
 
 p {
-    font-size: 20px;
+    font-size: 22px;
+    margin-top: 20px;
+    font-weight: bold;
+    padding: 12px;
+    background-color: #bbbbbb;
+    border: 3px solid black;
+    color: black;
+}
+
+.countdown {
+    background-color: #bbbbbb;
 }
