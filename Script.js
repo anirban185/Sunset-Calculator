@@ -1,3 +1,5 @@
+var timer;
+
 function getGPS() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -90,4 +92,24 @@ function calculate() {
     }
 
     document.getElementById("result").innerText = "Sunset time: " + h + ":" + m + " (" + tz + ")";
+
+    var todayUtc = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+    var sunsetDate = new Date(todayUtc + sunsetUtc * 60000);
+    clearInterval(timer);
+    timer = setInterval(function () {
+        var diff = sunsetDate - new Date();
+
+        if (diff <= 0) {
+            document.getElementById("countdown").innerText = "The sun has set";
+            clearInterval(timer);
+            return;
+        }
+
+        var totalSecounds = Math.floor(diff / 1000);
+        var hrs = Math.floor(totalSecounds / 3600);
+        var mins = Math.floor((totalSecounds % 3600) / 60);
+        var secs = totalSecounds % 60;
+
+        document.getElementById("countdown").innerText = "Time left: " + hrs + "h " + mins + "m " + secs + "s";
+    }, 1000);
 }
