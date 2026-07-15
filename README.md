@@ -26,7 +26,7 @@ You type  in your latitude and longitude (or hit "Use GPS"), tap calculate and i
 
 # Challenges
 
-My first version used JS's 'alert()' to show results, whice felt terrible to use, so i added a '<p>' tag to the HTML and displayed and result there instead. I also made a lot of silly mistakes along the way, like typing 'scr' instead of 'src' in the script tag, or writing  'Data' instead of 'Date'. These small things way to0 long to spot. the Timezones assumption was not a good idea as metioned before and i had to use a library. On top of that, a lot of my GitHub Actions were failing or timing out during deployment. I amm still not sure it was a problem on my side or GitHub's, But it sorted itself out after a day or so.
+My first version used JS's 'alert()' to show results, whice felt terrible to use, so i added a "\<p\>" tag to the HTML and displayed and result there instead. I also made a lot of silly mistakes along the way, like typing 'scr' instead of 'src' in the script tag, or writing  'Data' instead of 'Date'. These small things way to0 long to spot. the Timezones assumption was not a good idea as metioned before and i had to use a library. On top of that, a lot of my GitHub Actions were failing or timing out during deployment. I amm still not sure it was a problem on my side or GitHub's, But it sorted itself out after a day or so.
 
 # Built With
 
