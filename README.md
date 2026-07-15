@@ -2,6 +2,10 @@
 
 A web app that tells you when the sun sets at any location and counts down to it in real time.
 
+# Screenshot
+
+![Full screenshot of the site](/Screenshot.png)
+
 # Why
 
 I wanted to build something actually useful learning Javascript. Sunset time felt like a good project because the math behind is really cool.
